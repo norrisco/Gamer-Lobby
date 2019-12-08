@@ -11,11 +11,11 @@ const routes: Routes = [
   { path: 'add-player', component: AddPlayerComponent },
   { path: 'update-player/:id', component: UpdatePlayerComponent },
   { path: 'delete-player/:id', component: DeletePlayerComponent },
-  { path: 'player-list/:id', component: PlayerListComponent }
+  { path: 'player-list', component: PlayerListComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 
