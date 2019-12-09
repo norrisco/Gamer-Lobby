@@ -6,6 +6,7 @@ import { AddPlayerComponent } from './components/add-player/add-player.component
 import { UpdatePlayerComponent } from './components/update-player/update-player.component';
 import { DeletePlayerComponent } from './components/delete-player/delete-player.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
+import { GamesComponent } from './components/games/games.component'
 import { SearchComponent } from './components/search/search.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,7 @@ import { AuthModule } from "./auth/auth.module";
     DeletePlayerComponent,
     PlayerListComponent,
     SearchComponent,
+    GamesComponent
     
   ],
   imports: [
