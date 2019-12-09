@@ -29,6 +29,7 @@ table.mat-table,table{width:100%;}
 body .push-right{margin-right:10px;}
 .no-data{text-align:center;padding-top:30px;color:#6c75a9;}
 .button-wrapper{margin:20px 0 0 0;}
+.example-fill-remaining-space {flex: 1 1 auto;}
 @media (max-width:1024px){.inner-wrapper mat-card{width:100%;}
  .mat-sidenav-content{padding:20px 20px 0;}
  .misc-bottom-padding mat-label{display:block;padding-bottom:10px;}
