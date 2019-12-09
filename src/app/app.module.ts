@@ -15,6 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './shared/api.service';
 /* Reactive form services in Angular 8 */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
+import { AdminModule } from "./admin/admin.module";
+
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddPlayerComponent,
     UpdatePlayerComponent,
     DeletePlayerComponent,
-    PlayerListComponent
+    PlayerListComponent,
+    SearchComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AdminModule,
+    AuthModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
