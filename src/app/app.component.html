@@ -12,7 +12,10 @@
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="false"
     [fixedTopGap]="0">
     <mat-nav-list>
-      <a mat-list-item routerLinkActive="active" routerLink="/component/add-player">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin">
+        <mat-icon>account_circle</mat-icon> Admin
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/add-player">
         <mat-icon>add</mat-icon> Add Player
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/player-list">
@@ -20,9 +23,6 @@
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/games">
         <mat-icon>format_list_bulleted</mat-icon> Games
-      </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin">
-        <mat-icon>account_circle</mat-icon> Admin
       </a>
     </mat-nav-list>
   </mat-sidenav>
