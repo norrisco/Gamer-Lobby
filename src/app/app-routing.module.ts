@@ -9,7 +9,7 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-player' },
   { path: 'add-player', component: AddPlayerComponent },
-  { path: 'update-player/:id', component: UpdatePlayerComponent },
+  { path: 'read-player/:id', component: UpdatePlayerComponent },
   { path: 'delete-player/:id', component: DeletePlayerComponent },
   { path: 'player-list', component: PlayerListComponent }
 ];

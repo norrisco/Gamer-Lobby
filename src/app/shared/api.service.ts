@@ -42,7 +42,7 @@ export class ApiService {
 
   // Update player
   UpdatePlayer(id, data: Player): Observable<any> {
-    let API_URL = `${this.endpoint}/update/${id}`;
+    let API_URL = `${this.endpoint}/update-player/${id}`;
     return this.http.put(API_URL, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
@@ -55,6 +55,17 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
+
+  /* GET players whose name contains search term */
+  searchPlayers(term: string): Observable<Player[]> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return null;
+  }
+  
+}
+
+
 
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
