@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-// Define collection and schema
-let Admin = new Schema({
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: true
-  }
-}, {
-  collection: 'admins'
-})
+const adminSchema = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            min: 4,
+            max: 255
+        },
+        password: {
+            type: String,
+            required: true,
+            max: 1024,
+            min: 6
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    }
+);
 
-module.exports = mongoose.model('Admin', Admin)
+module.exports = mongoose.model('Admin', adminSchema);

@@ -4,9 +4,18 @@ let express = require('express'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
   dataBaseConfig = require('./database/db');
+  const dotenv = require('dotenv');
+
+  //Grabs the .env file
+  dotenv.config();
 
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
+/*
+mongoose.connect(process.env.DB_CONNECT,
+  { useNewUrlParser: true },
+  () => console.log('Connected to cloud db'));
+*/ 
 mongoose.connect(dataBaseConfig.db, {
   useNewUrlParser: true
 }).then(() => {
@@ -28,6 +37,13 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
 app.use('/', express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
 app.use('/api', playerRoute)
+
+//Routes
+//const authRoute = require('./routes/auth');
+//const postRoute = require('./routes/posts');
+//Route Middlewares (To go to register its '/api/user/register')
+//app.use('/api/admin', authRoute);
+//app.use('/api/posts', postRoute);
 
 // Create port
 const port = process.env.PORT || 4000;

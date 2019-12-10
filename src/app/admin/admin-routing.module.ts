@@ -18,10 +18,11 @@ const adminRoutes: Routes = [
         path: '',
         canActivateChild: [AuthGuard],
         children: [
-          { path: 'detail/:id', component: UpdatePlayerComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'player-list' },
+          { path: 'read-player/:id', component: UpdatePlayerComponent },
           { path: 'add-player', component: AddPlayerComponent },
           { path: 'games', component: GamesComponent},
-          { path: '', component: PlayerListComponent }
+          { path: 'player-list', component: PlayerListComponent },
         ]
       }
     ]

@@ -5,15 +5,19 @@ import { UpdatePlayerComponent } from './components/update-player/update-player.
 import { DeletePlayerComponent } from './components/delete-player/delete-player.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { GamesComponent } from './components/games/games.component';
+import { PlayerRankingComponent } from "./components/player-ranking/player-ranking.component";
+import { JoinGameComponent } from "./components/join-game/join-game.component";
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'player-list' },
-  { path: 'add-player', component: AddPlayerComponent },
-  { path: 'read-player/:id', component: UpdatePlayerComponent },
-  { path: 'delete-player/:id', component: DeletePlayerComponent },
-  { path: 'player-list', component: PlayerListComponent },
-  { path: 'games', component: GamesComponent }
+  { path: '', pathMatch: 'full', redirectTo: 'player-ranking' },
+  //{ path: 'add-player', component: AddPlayerComponent },
+  //{ path: 'read-player/:id', component: UpdatePlayerComponent },
+  //{ path: 'delete-player/:id', component: DeletePlayerComponent },
+  //{ path: 'player-list', component: PlayerListComponent },
+  //{ path: 'games', component: GamesComponent }
+  { path: 'player-ranking', component: PlayerRankingComponent},
+  { path: 'join-game', component: JoinGameComponent}
 ];
 
 @NgModule({
