@@ -6,21 +6,36 @@ let Player = new Schema({
   player_name: {
     type: String
   },
-  player_email: {
+  player_rank: {
     type: String
   },
-  section: {
+  player_score: {
     type: String
   },
-  subjects: {
+  player_time: {
+    type: String
+  },
+  games_played: {
     type: Array
   },
-  gender: {
+  player_status: {
     type: String
   },
-  dob: {
-    type: Date
-  }
+  // player_email: {
+  //   type: String
+  // },
+  // section: {
+  //   type: String
+  // },
+  // subjects: {
+  //   type: Array
+  // },
+  // gender: {
+  //   type: String
+  // },
+  // dob: {
+  //   type: Date
+  // }
 }, {
   collection: 'players'
 })

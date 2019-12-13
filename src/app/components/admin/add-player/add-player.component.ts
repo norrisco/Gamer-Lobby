@@ -24,8 +24,9 @@ export class AddPlayerComponent implements OnInit {
   @ViewChild('resetPlayerForm', {static: false}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
-  subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+  RankArray: any = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  TimeArray: any = ['1 hr', '2 hrs', '3 hrs', '4 hrs', '5+ hrs'];
+  GamesArray: any = ['Overwatch', 'Minecraft', 'League of Legends', 'Warcraft III', 'Fortnite'];
 
   ngOnInit() {
     this.submitBookForm();
@@ -42,43 +43,13 @@ export class AddPlayerComponent implements OnInit {
   submitBookForm() {
     this.playerForm = this.fb.group({
       player_name: ['', [Validators.required]],
-      player_email: ['', [Validators.required]],
-      section: ['', [Validators.required]],
-      subjects: [this.subjectArray],
-      dob: ['', [Validators.required]],
-      gender: ['Male']
+      player_rank: ['', [Validators.required]],
+      player_score: ['', [Validators.required]],
+      player_time: ['', [Validators.required]],
+      games_played: ['', [Validators.required]],
+      player_status: ['Available']
     })
   }
-
-  /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add language
-    if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() })
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
-
-  /* Remove dynamic languages */
-  remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
-    if (index >= 0) {
-      this.subjectArray.splice(index, 1);
-    }
-  }  
-
-  /* Date */
-  formatDate(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.playerForm.get('dob').setValue(convertDate, {
-      onlyself: true
-    })
-  }  
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
