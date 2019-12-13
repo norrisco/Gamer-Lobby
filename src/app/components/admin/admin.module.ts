@@ -9,7 +9,7 @@ import { AddPlayerComponent } from './add-player/add-player.component';
 import { UpdatePlayerComponent } from './update-player/update-player.component';
 import { GamesComponent } from './games/games.component';
 
-import { AngularMaterialModule } from "../material.module";
+import { AngularMaterialModule } from "../../material.module";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 

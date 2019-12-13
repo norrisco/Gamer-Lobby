@@ -18,7 +18,7 @@ import { ApiService } from './shared/api.service';
 /* Reactive form services in Angular 8 */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AdminModule } from "./admin/admin.module";
+import { AdminModule } from "./components/admin/admin.module";
 
 import { AuthModule } from "./auth/auth.module";
 import { PlayerRankingComponent } from './components/player-ranking/player-ranking.component';

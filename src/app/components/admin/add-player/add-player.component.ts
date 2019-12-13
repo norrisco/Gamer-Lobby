@@ -1,8 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
-import { ApiService } from './../../shared/api.service';
+import { ApiService } from '../../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 export interface Subject {
@@ -10,12 +10,12 @@ export interface Subject {
 }
 
 @Component({
-  selector: 'app-update-player',
-  templateUrl: './update-player.component.html',
-  styleUrls: ['./update-player.component.css']
+  selector: 'app-add-player',
+  templateUrl: './add-player.component.html',
+  styleUrls: ['./add-player.component.css']
 })
 
-export class UpdatePlayerComponent implements OnInit {
+export class AddPlayerComponent implements OnInit {
   visible = true;
   selectable = true;
   removable = true;
@@ -28,33 +28,18 @@ export class UpdatePlayerComponent implements OnInit {
   SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
-    this.updateBookForm();
+    this.submitBookForm();
   }
 
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private actRoute: ActivatedRoute,
     private playerApi: ApiService
-  ) { 
-    var id = this.actRoute.snapshot.paramMap.get('id');
-    this.playerApi.GetPlayer(id).subscribe(data => {
-      console.log(data.subjects)
-      this.subjectArray = data.subjects;
-      this.playerForm = this.fb.group({
-        player_name: [data.player_name, [Validators.required]],
-        player_email: [data.player_email, [Validators.required]],
-        section: [data.section, [Validators.required]],
-        subjects: [data.subjects],
-        dob: [data.dob, [Validators.required]],
-        gender: [data.gender]
-      })      
-    })    
-  }
+  ) { }
 
   /* Reactive book form */
-  updateBookForm() {
+  submitBookForm() {
     this.playerForm = this.fb.group({
       player_name: ['', [Validators.required]],
       player_email: ['', [Validators.required]],
@@ -85,7 +70,7 @@ export class UpdatePlayerComponent implements OnInit {
     if (index >= 0) {
       this.subjectArray.splice(index, 1);
     }
-  }
+  }  
 
   /* Date */
   formatDate(e) {
@@ -93,22 +78,20 @@ export class UpdatePlayerComponent implements OnInit {
     this.playerForm.get('dob').setValue(convertDate, {
       onlyself: true
     })
-  }
+  }  
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
     return this.playerForm.controls[controlName].hasError(errorName);
-  }
+  }  
 
-  /* Update book */
-  updatePlayerForm() {
-    console.log(this.playerForm.value)
-    var id = this.actRoute.snapshot.paramMap.get('id');
-    if (window.confirm('Are you sure you want to update?')) {
-      this.playerApi.UpdatePlayer(id, this.playerForm.value).subscribe( res => {
+  /* Submit book */
+  submitPlayerForm() {
+    if (this.playerForm.valid) {
+      this.playerApi.AddPlayer(this.playerForm.value).subscribe(res => {
         this.ngZone.run(() => this.router.navigateByUrl('/admin/player-list'))
       });
     }
   }
-  
+
 }

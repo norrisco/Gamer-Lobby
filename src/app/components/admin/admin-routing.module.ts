@@ -5,7 +5,7 @@ import { AddPlayerComponent } from "./add-player/add-player.component";
 import { PlayerListComponent } from "./player-list/player-list.component";
 import { UpdatePlayerComponent } from "./update-player/update-player.component";
 import { GamesComponent } from "./games/games.component";
-import { AuthGuard } from "../auth/auth.guard";
+import { AuthGuard } from "../../auth/auth.guard";
 
 
 const adminRoutes: Routes = [

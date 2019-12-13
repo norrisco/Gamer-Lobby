@@ -1,5 +1,5 @@
-import { Player } from './../../shared/player';
-import { ApiService } from './../../shared/api.service';
+import { Player } from '../../../shared/player';
+import { ApiService } from '../../../shared/api.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
