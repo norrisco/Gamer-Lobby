@@ -38,7 +38,6 @@ export class UpdatePlayerComponent implements OnInit {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.playerApi.GetPlayer(id).subscribe(data => {
       console.log(data.subjects)
-      //this.subjectArray = data.subjects;
       this.playerForm = this.fb.group({
         player_name: [data.player_name, [Validators.required]],
         player_rank: [data.player_rank, [Validators.required]],

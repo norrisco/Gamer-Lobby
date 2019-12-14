@@ -5,10 +5,6 @@ import { MatChipInputEvent } from '@angular/material';
 import { ApiService } from '../../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-export interface Subject {
-  name: string;
-}
-
 @Component({
   selector: 'app-add-player',
   templateUrl: './add-player.component.html',

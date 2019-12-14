@@ -2,28 +2,31 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Define collection and schema
-let Player = new Schema({
-  player_name: {
+let Games = new Schema({
+  title: {
     type: String
   },
-  player_rank: {
+  platform: {
     type: String
   },
-  player_score: {
+  genre: {
     type: String
   },
-  player_time: {
+  rating: {
     type: String
   },
-  games_played: {
-    type: Array
+  publisher: {
+    type: String
   },
-  player_status: {
+  release: {
+    type: String
+  },
+  status: {
     type: String
   }
 
 }, {
-  collection: 'players'
+  collection: 'games'
 })
 
-module.exports = mongoose.model('Player', Player)
+module.exports = mongoose.model('Games', Games)

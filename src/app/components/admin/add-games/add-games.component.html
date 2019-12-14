@@ -1,0 +1,119 @@
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Add Games</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="gamesForm" (ngSubmit)="submitGamesForm()" #resetGamesForm="ngForm" novalidate>
+    
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- Title -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Title" formControlName="title">
+          <mat-error *ngIf="handleError('title', 'required')">
+            You must provide a<strong> title</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Platform -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Platform" formControlName="platform">
+          <mat-error *ngIf="handleError('platform', 'required')">
+            You must provide a<strong> platform</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Genre -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Genre" formControlName="genre">
+          <mat-error *ngIf="handleError('genre', 'required')">
+            You must provide a<strong> genre</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Rating -->
+        <mat-form-field>
+          <mat-label>Rating</mat-label>
+          <mat-select [(value)]="selectedRating" formControlName="rating">
+            <mat-option [value]="ratingArray" *ngFor="let ratingArray of RatingArray">{{ratingArray}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('rating', 'required')">
+            Rating is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Publisher -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Publisher" formControlName="publisher">
+          <mat-error *ngIf="handleError('publisher', 'required')">
+            You must provide a<strong> publisher</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Release -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Release" formControlName="release">
+          <mat-error *ngIf="handleError('release', 'required')">
+            You must provide a<strong> release</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Status -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Status" formControlName="status">
+          <mat-error *ngIf="handleError('status', 'required')">
+            You must provide a<strong> status</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Time -->
+        <!-- <mat-form-field>
+          <mat-label>Time</mat-label>
+          <mat-select [(value)]="selectedTime" formControlName="player_time">
+            <mat-option [value]="timeArray" *ngFor="let timeArray of TimeArray">{{timeArray}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('player_time', 'required')">
+            Games Time is required
+          </mat-error>
+        </mat-form-field> -->
+        
+      </div>
+    </mat-card>
+
+        <!-- Games -->
+        <!-- <mat-form-field>
+          <mat-label>Select a Game</mat-label>
+          <mat-select [(value)]="selectedGames" formControlName="games_played">
+            <mat-option [value]="gamesArray" *ngFor="let gamesArray of GamesArray">{{gamesArray}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('games_played', 'required')">
+            Games is required
+          </mat-error>
+        </mat-form-field> -->
+
+        <!-- Status -->
+        <!-- <div class="misc-bottom-padding">
+          <mat-label>Status:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="player_status">
+            <mat-radio-button value="Available">Available</mat-radio-button>
+            <mat-radio-button value="In Game">In Game</mat-radio-button>
+          </mat-radio-group>
+        </div> -->
+
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Submit</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>

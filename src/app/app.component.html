@@ -8,6 +8,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
+  
   <!-- Sidenav -->
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="false"
     [fixedTopGap]="0">
@@ -15,17 +16,23 @@
       <a mat-list-item routerLinkActive="active" routerLink="/admin">
         <mat-icon>account_circle</mat-icon> Admin
       </a>
+      <hr>
+      <a mat-list-item routerLinkActive="active" routerLink="/player-ranking">
+        <mat-icon>format_list_bulleted</mat-icon> Player Ranking
+      </a>
+      <hr>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/add-player">
         <mat-icon>add</mat-icon> Add Player
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/player-list">
         <mat-icon>format_list_bulleted</mat-icon> View Players
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin/games">
-        <mat-icon>format_list_bulleted</mat-icon> Games
+      <hr>
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/add-games">
+        <mat-icon>add</mat-icon> Add Games
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/player-ranking">
-        <mat-icon>format_list_bulleted</mat-icon> Player Ranking
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/games">
+        <mat-icon>format_list_bulleted</mat-icon> View Games
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -34,4 +41,5 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
+
 </mat-sidenav-container>
