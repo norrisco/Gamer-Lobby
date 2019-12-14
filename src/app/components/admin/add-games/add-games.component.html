@@ -70,48 +70,15 @@
             You must provide a<strong> status</strong>
           </mat-error>
         </mat-form-field>
-
-        <!-- Time -->
-        <!-- <mat-form-field>
-          <mat-label>Time</mat-label>
-          <mat-select [(value)]="selectedTime" formControlName="player_time">
-            <mat-option [value]="timeArray" *ngFor="let timeArray of TimeArray">{{timeArray}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="handleError('player_time', 'required')">
-            Games Time is required
-          </mat-error>
-        </mat-form-field> -->
         
       </div>
     </mat-card>
-
-        <!-- Games -->
-        <!-- <mat-form-field>
-          <mat-label>Select a Game</mat-label>
-          <mat-select [(value)]="selectedGames" formControlName="games_played">
-            <mat-option [value]="gamesArray" *ngFor="let gamesArray of GamesArray">{{gamesArray}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="handleError('games_played', 'required')">
-            Games is required
-          </mat-error>
-        </mat-form-field> -->
-
-        <!-- Status -->
-        <!-- <div class="misc-bottom-padding">
-          <mat-label>Status:</mat-label>
-          <mat-radio-group aria-label="Select an option" formControlName="player_status">
-            <mat-radio-button value="Available">Available</mat-radio-button>
-            <mat-radio-button value="In Game">In Game</mat-radio-button>
-          </mat-radio-group>
-        </div> -->
 
     <!-- Submit & Reset -->
     <mat-card>
       <div class="full-wrapper button-wrapper">
         <div class="button-wrapper">
-          <button mat-flat-button color="warn">Submit</button>
+          <button mat-flat-button color="accent">Add Game</button>
         </div>
       </div>
     </mat-card>
