@@ -39,11 +39,11 @@ app.use('/', express.static(path.join(__dirname, 'dist/angular8-meanstack-angula
 app.use('/api', playerRoute)
 
 //Routes
-//const authRoute = require('./routes/auth');
-//const postRoute = require('./routes/posts');
-//Route Middlewares (To go to register its '/api/user/register')
-//app.use('/api/admin', authRoute);
-//app.use('/api/posts', postRoute);
+const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts');
+//Route Middlewares (To go to register its '/api/auth/register')
+app.use('/api/auth', authRoute);
+app.use('/api/posts', postRoute);
 
 // Create port
 const port = process.env.PORT || 4000;

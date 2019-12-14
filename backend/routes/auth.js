@@ -3,9 +3,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Admin = require('../model/Admin');
 
-const {registerValidation, loginValidation }  = require('../validation');
+const {registerValidation, loginValiation }  = require('../validation');
 
-
+//localhost:4000/api/auth/register
 router.post('/register', async (req, res) => {
     //Run the register validation, if there are errors send Joi's error message
     const {error} = registerValidation(req.body);
@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
 //login
 router.post('/login', async (req, res) => {
     //run Joi validation to check format
-    const {error} = loginValidation(req.body);
+    const {error} = loginValiation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
     //Check database for username
@@ -49,8 +49,8 @@ router.post('/login', async (req, res) => {
     //SUCCESS
     //Create JWT token
     //Secret in .env file
-    const token = jwt.sign({_id: admin._id}, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    const token = jwt.sign({_id: admin._id, expiresIn: "10h"}, process.env.TOKEN_SECRET);
+    res.header('auth-token', token).send(token, {expiresIn: "10h"});
 
 
     
