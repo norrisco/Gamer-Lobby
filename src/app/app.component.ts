@@ -1,6 +1,7 @@
-import { Component, ViewChild, HostListener, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, HostListener, OnInit, DoCheck } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthService } from "./auth/auth.service";
+import { startWith, tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,13 @@ import { AuthService } from "./auth/auth.service";
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit, AfterViewChecked {
+export class AppComponent implements OnInit, DoCheck{
   opened = true;
   showFiller = false;
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
 
   constructor (private auth: AuthService) {}
-  isLoggedIn;  
+  isLoggedIn = false;  
 
   ngOnInit() {
     this.isLoggedIn = this.auth.isLoggedIn();
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
     // }
   }
 
-  ngAfterViewChecked(){
+  ngDoCheck(){
     this.isLoggedIn = this.auth.isLoggedIn();
   }
 
