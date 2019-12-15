@@ -9,6 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 export class AppComponent {
   opened = true;
+  showFiller = false;
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
 
   ngOnInit() {

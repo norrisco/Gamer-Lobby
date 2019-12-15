@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
-  <div>Gamer Lobby</div>
+  <mat-icon>supervised_user_circle</mat-icon><div>Gamer Lobby</div>
   <span class="nav-tool-items">
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
@@ -18,21 +18,21 @@
       </a>
       <hr>
       <a mat-list-item routerLinkActive="active" routerLink="/player-ranking">
-        <mat-icon>format_list_bulleted</mat-icon> Player Ranking
+        <mat-icon>face</mat-icon> Player Rankings
       </a>
       <hr>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/add-player">
-        <mat-icon>add</mat-icon> Add Player
+        <mat-icon>group_add</mat-icon> Add Player
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/player-list">
-        <mat-icon>format_list_bulleted</mat-icon> View Players
+        <mat-icon>supervised_user_circle</mat-icon> View Players
       </a>
-      <hr>
+      <hr>      
       <a mat-list-item routerLinkActive="active" routerLink="/admin/add-games">
-        <mat-icon>add</mat-icon> Add Games
+        <mat-icon>add_circle</mat-icon> Add Game
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/games">
-        <mat-icon>format_list_bulleted</mat-icon> View Games
+        <mat-icon>games</mat-icon> View Games
       </a>
     </mat-nav-list>
   </mat-sidenav>
