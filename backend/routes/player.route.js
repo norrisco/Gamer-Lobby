@@ -41,7 +41,7 @@ playerRoute.route('/read-player/:id').get((req, res) => {
 
 
 // Update player
-playerRoute.route('/update-player/:id').put(verify, (req, res, next) => {
+playerRoute.route('/update-player/:id').put((req, res, next) => {
   Player.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
