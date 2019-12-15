@@ -49,8 +49,18 @@ router.post('/login', async (req, res) => {
     //SUCCESS
     //Create JWT token
     //Secret in .env file
-    const token = jwt.sign({_id: admin._id, expiresIn: "10h"}, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token, {expiresIn: "10h"});
+    try{
+        const expiry = 120;
+        const token = jwt.sign({_id: admin._id}, process.env.TOKEN_SECRET, {expiresIn: expiry});
+        res.header('auth_token', token).send({
+            "token": token,
+            "expiresIn": expiry
+        });
+        //res.cookie("auth-token", token, {httpOnly: true});
+    }catch(err){
+        res.send('Unable to send JWT Token');
+    }
+    
 
 
     
