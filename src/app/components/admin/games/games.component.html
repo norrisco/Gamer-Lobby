@@ -6,7 +6,7 @@
   
   <p *ngIf="GamesData.length <= 0" class="no-data">There is no games added yet!</p>
   
-  <div class="container2" *ngIf="GamesData.length > 0">
+  <div class="container" *ngIf="GamesData.length > 0">
     <div class="mat-elevation-z8">  
       <table mat-table [dataSource]="dataSource">
 
@@ -52,8 +52,8 @@
             </td>
           </ng-container>
   
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
   
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
