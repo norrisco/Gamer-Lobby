@@ -69,7 +69,7 @@ public logout() {
 }
 
 public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    return moment(Date.now(), "x").isBefore(this.getExpiration());
 }
 
 isLoggedOut() {
@@ -79,7 +79,7 @@ isLoggedOut() {
 getExpiration() {
     const expiration = localStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    return moment(expiresAt, "x");
 }
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {

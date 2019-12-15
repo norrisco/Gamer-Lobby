@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit{
   }
 
   login() {
-    this.message = 'Trying to log in ...';
+    this.message = 'Logging in...';
 
     if (this.loginForm.valid){
       try{
@@ -71,7 +71,8 @@ export class LoginComponent implements OnInit{
       }catch (err){
         this.message = 'An unexpected error occured. Please try again.';
       }
+    }else{
+      this.message = 'Either the username or password is incorrect. Please try again.';
     }
-    this.message = 'Either the username or password is incorrect. Please try again.';
   }
 }

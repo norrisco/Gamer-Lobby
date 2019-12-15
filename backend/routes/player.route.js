@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const playerRoute = express.Router();
+const verify = require('./verifyToken');
 
 // Player model
 let Player = require('../model/Player');
 
 // Add Player
-playerRoute.route('/add-player').post((req, res, next) => {
+playerRoute.route('/add-player').post(verify, (req, res, next) => {
   Player.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -40,7 +41,7 @@ playerRoute.route('/read-player/:id').get((req, res) => {
 
 
 // Update player
-playerRoute.route('/update-player/:id').put((req, res, next) => {
+playerRoute.route('/update-player/:id').put(verify, (req, res, next) => {
   Player.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
@@ -55,7 +56,7 @@ playerRoute.route('/update-player/:id').put((req, res, next) => {
 })
 
 // Delete player
-playerRoute.route('/delete-player/:id').delete((req, res, next) => {
+playerRoute.route('/delete-player/:id').delete(verify, (req, res, next) => {
   Player.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);

@@ -5,7 +5,7 @@ import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiService } from './shared/api.service';
 import { GamesApiService } from './shared/games.api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { AdminModule } from "./components/admin/admin.module";
 import { AuthModule } from "./auth/auth.module";
 import { PlayerRankingComponent } from './components/player-ranking/player-ranking.component';
 import { JoinGameComponent } from './components/join-game/join-game.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 
 @NgModule({
@@ -35,7 +36,15 @@ import { JoinGameComponent } from './components/join-game/join-game.component';
     AdminModule,
     AuthModule
   ],
-  providers: [ApiService, GamesApiService],
+  providers: [
+    ApiService, 
+    GamesApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

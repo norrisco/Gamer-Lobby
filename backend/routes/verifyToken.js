@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 
 //Add this function to verify JWT Token for private admin routes
 module.exports = function (req, res, next){
-    const token = req.header('auth-token');
+    const token = req.header('auth_token');
     if (!token) return res.status(401).send('Access Denied');
 
     try{
