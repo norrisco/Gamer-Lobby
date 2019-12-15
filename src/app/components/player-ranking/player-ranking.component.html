@@ -3,6 +3,10 @@
     <h1 class="mat-h2"><mat-icon>face</mat-icon> Players Rankings</h1>
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
   
   <p *ngIf="PlayerData.length <= 0" class="no-data">There is no player added yet!</p>
   
@@ -35,7 +39,7 @@
         </ng-container>
 
         <ng-container matColumnDef="games_played">
-          <th mat-header-cell *matHeaderCellDef> Games </th>
+          <th mat-header-cell *matHeaderCellDef> Last Played Game </th>
           <td mat-cell *matCellDef="let element"> {{element.games_played}} </td>
         </ng-container>
 
@@ -49,8 +53,6 @@
           <td mat-cell *matCellDef="let element; let i = index;">
             <button mat-raised-button color="primary" class="push-right"
               [routerLink]="['/join-game/', element._id]">Join Game</button>
-              <!-- <button mat-raised-button color="primary" class="push-right"
-              routerLink="/join-game">Join Game</button> -->
           </td>
         </ng-container>
   

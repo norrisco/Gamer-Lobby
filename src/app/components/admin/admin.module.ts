@@ -18,7 +18,7 @@ import { AddGamesComponent } from './add-games/add-games.component';
     AddPlayerComponent,
     UpdatePlayerComponent,
     GamesComponent,
-    AddGamesComponent
+    AddGamesComponent,
   
   ],
   imports: [

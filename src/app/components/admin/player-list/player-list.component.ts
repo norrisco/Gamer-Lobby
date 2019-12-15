@@ -24,6 +24,11 @@ export class PlayerListComponent implements OnInit {
       }, 0);
     })    
   }
+  
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
   ngOnInit() { }
 
@@ -32,7 +37,7 @@ export class PlayerListComponent implements OnInit {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
-      this.playerApi.DeletePlayer(e._id).subscribe()
+      this.playerApi.DeletePlayer(e._id).subscribe();
     }
   }
 

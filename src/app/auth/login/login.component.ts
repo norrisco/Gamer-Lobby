@@ -24,28 +24,27 @@ export class LoginComponent implements OnInit{
   constructor(
     public authService: AuthService,
     public router: Router,
-    public fb: FormBuilder,
+    public fb: FormBuilder
     ) 
     {
-    this.setMessage();
-  }
+      this.setMessage();
+    }
+
   ngOnInit(){
     this.validateForm();
   }
 
   validateForm(){
     this.loginForm = this.fb.group({
-      username: [ [Validators.required]],
-      password: [ [Validators.required]]
-    })
+      username: [[Validators.required]],
+      password: [[Validators.required]]
+    });
   }
 
-    /* Get errors */
-    public handleError = (controlName: string, errorName: string) => {
-      return this.loginForm.controls[controlName].hasError(errorName);
-    }  
-
-
+  /* Get errors */
+  public handleError = (controlName: string, errorName: string) => {
+    return this.loginForm.controls[controlName].hasError(errorName);
+  }  
 
   setMessage() {
     this.message = '';

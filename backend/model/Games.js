@@ -27,6 +27,6 @@ let Games = new Schema({
 
 }, {
   collection: 'games'
-})
+});
 
-module.exports = mongoose.model('Games', Games)
+module.exports = mongoose.model('Games', Games);

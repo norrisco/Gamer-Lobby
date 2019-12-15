@@ -26,7 +26,7 @@ playerRoute.route('/').get((req, res) => {
       res.json(data)
     }
   })
-})
+});
 
 // Get single player
 playerRoute.route('/read-player/:id').get((req, res) => {
@@ -37,7 +37,7 @@ playerRoute.route('/read-player/:id').get((req, res) => {
       res.json(data)
     }
   })
-})
+});
 
 
 // Update player
@@ -53,7 +53,7 @@ playerRoute.route('/update-player/:id').put(verify, (req, res, next) => {
       console.log('Player successfully updated!')
     }
   })
-})
+});
 
 // Delete player
 playerRoute.route('/delete-player/:id').delete(verify, (req, res, next) => {
@@ -66,6 +66,6 @@ playerRoute.route('/delete-player/:id').delete(verify, (req, res, next) => {
       })
     }
   })
-})
+});
 
 module.exports = playerRoute;

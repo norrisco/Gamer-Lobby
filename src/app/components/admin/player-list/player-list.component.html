@@ -3,8 +3,12 @@
         <h1 class="mat-h2"><mat-icon>supervised_user_circle</mat-icon> Players</h1>
         <mat-divider fxFlex="1 0"></mat-divider>
       </div>
+
+      <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field> 
       
-      <p *ngIf="PlayerData.length <= 0" class="no-data">There is no player added yet!</p>
+     <p *ngIf="PlayerData.length <= 0" class="no-data">There is no player added yet!</p>
       
       <div class="container" *ngIf="PlayerData.length > 0">
         <div class="mat-elevation-z8">
@@ -54,5 +58,5 @@
           </table>
       
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-        </div>
+        </div> 
       </div>

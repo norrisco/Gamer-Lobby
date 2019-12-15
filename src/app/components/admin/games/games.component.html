@@ -4,6 +4,10 @@
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
   
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
   <p *ngIf="GamesData.length <= 0" class="no-data">There is no games added yet!</p>
   
   <div class="container" *ngIf="GamesData.length > 0">

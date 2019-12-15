@@ -25,7 +25,7 @@ gamesRoute.route('/').get((req, res) => {
       res.json(data)
     }
   })
-})
+});
 
 // Get single games
 gamesRoute.route('/read-games/:id').get((req, res) => {
@@ -36,7 +36,7 @@ gamesRoute.route('/read-games/:id').get((req, res) => {
       res.json(data)
     }
   })
-})
+});
 
 
 // Update games
@@ -46,13 +46,12 @@ gamesRoute.route('/update-games/:id').put((req, res, next) => {
   }, (error, data) => {
     if (error) {
       return next(error);
-      console.log(error)
     } else {
       res.json(data)
       console.log('Games successfully updated!')
     }
   })
-})
+});
 
 // Delete games
 gamesRoute.route('/delete-games/:id').delete((req, res, next) => {
@@ -65,6 +64,6 @@ gamesRoute.route('/delete-games/:id').delete((req, res, next) => {
       })
     }
   })
-})
+});
 
 module.exports = gamesRoute;

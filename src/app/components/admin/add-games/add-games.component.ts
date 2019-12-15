@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material';
 import { GamesApiService } from '../../../shared/games.api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -22,8 +21,6 @@ export class AddGamesComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   gamesForm: FormGroup;
   RatingArray: any = ['5 stars', '4 stars', '3 stars', '2 stars', '1 star'];
-  //TimeArray: any = ['1 hr', '2 hrs', '3 hrs', '4 hrs', '5+ hrs'];
-  //GamesArray: any = ['Overwatch', 'Minecraft', 'League of Legends', 'Warcraft III', 'Fortnite'];
 
   ngOnInit() {
     this.submitBookForm();

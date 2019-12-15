@@ -21,4 +21,4 @@ import { AngularMaterialModule } from "../material.module";
     LoginComponent
   ]
 })
-export class AuthModule {}
+export class AuthModule {};

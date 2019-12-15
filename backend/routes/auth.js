@@ -5,7 +5,7 @@ const Admin = require('../model/Admin');
 
 const {registerValidation, loginValiation }  = require('../validation');
 
-//localhost:4000/api/auth/register
+
 router.post('/register', async (req, res) => {
     //Run the register validation, if there are errors send Joi's error message
     const {error} = registerValidation(req.body);
@@ -56,13 +56,10 @@ router.post('/login', async (req, res) => {
             "token": token,
             "expiresIn": expiry
         });
-        //res.cookie("auth-token", token, {httpOnly: true});
+        
     }catch(err){
         res.send('Unable to send JWT Token');
     }
-    
-
-
     
 });
 
