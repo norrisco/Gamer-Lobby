@@ -15,7 +15,7 @@
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="false"
     [fixedTopGap]="0">
     <mat-nav-list>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin" *ngIf="isLoggedIn">
         <mat-icon>account_circle</mat-icon> Admin
       </a>
       <hr>
@@ -23,17 +23,17 @@
         <mat-icon>face</mat-icon> Player Rankings
       </a>
       <hr>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin/add-player">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/add-player" *ngIf="isLoggedIn">
         <mat-icon>group_add</mat-icon> Add Player
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin/player-list">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/player-list" *ngIf="isLoggedIn">
         <mat-icon>supervised_user_circle</mat-icon> View Players
       </a>
-      <hr>      
-      <a mat-list-item routerLinkActive="active" routerLink="/admin/add-games">
+      <hr *ngIf="isLoggedIn">      
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/add-games" *ngIf="isLoggedIn">
         <mat-icon>add_circle</mat-icon> Add Game
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin/games">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/games" *ngIf="isLoggedIn">
         <mat-icon>games</mat-icon> View Games
       </a>
     </mat-nav-list>

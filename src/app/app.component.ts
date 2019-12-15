@@ -1,7 +1,6 @@
 import { Component, ViewChild, HostListener, OnInit, DoCheck } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthService } from "./auth/auth.service";
-import { startWith, tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +18,6 @@ export class AppComponent implements OnInit, DoCheck{
 
   ngOnInit() {
     this.isLoggedIn = this.auth.isLoggedIn();
-    // console.log(window.innerWidth)
-    // if (window.innerWidth < 768) {
-    //   this.sidenav.fixedTopGap = 55;
-    //   this.opened = false;
-    // } else {
-    //   this.sidenav.fixedTopGap = 55;
-    //   this.opened = true;
-    // }
   }
 
   ngDoCheck(){
