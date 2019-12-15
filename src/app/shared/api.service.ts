@@ -65,58 +65,6 @@ export class ApiService {
   }
 }
 
-//////////////////////////////////////
-
-  // Add games
-  AddGames(data: Games): Observable<any> {
-    let API_URL = `${this.endpoint}/add-games`;
-    return this.http.post(API_URL, data)
-      .pipe(
-        catchError(this.errorMgmt)
-      )
-  }
-
-  // Get all games
-  GetGames() {
-    return this.http.get(`${this.endpoint}`);
-  }
-
-  // Get games
-  GetGame(id): Observable<any> {
-    let API_URL = `${this.endpoint}/read-games/${id}`;
-    return this.http.get(API_URL, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
-  }
-
-  // Update games
-  UpdateGames(id, data: Games): Observable<any> {
-    let API_URL = `${this.endpoint}/update-games/${id}`;
-    return this.http.put(API_URL, data, { headers: this.headers }).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
-
-  // Delete games
-  DeleteGames(id): Observable<any> {
-    var API_URL = `${this.endpoint}/delete-games/${id}`;
-    return this.http.delete(API_URL).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
-
-  /* GET games whose name contains search term */
-  searchGames(term: string): Observable<Games[]> {
-  if (!term.trim()) {
-    // if not search term, return empty hero array.
-    return null;
-  }
-}
-
-
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';

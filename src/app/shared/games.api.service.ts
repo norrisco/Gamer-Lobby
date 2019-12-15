@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class GamesApiService {
 
-  endpoint: string = 'http://localhost:4000/api';
+  endpoint: string = 'http://localhost:4000/api/games';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }

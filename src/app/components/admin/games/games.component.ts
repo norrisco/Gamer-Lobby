@@ -1,5 +1,5 @@
 import { Games } from '../../../shared/games';
-import { ApiService } from '../../../shared/api.service';
+import { GamesApiService } from '../../../shared/games.api.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
@@ -12,9 +12,9 @@ export class GamesComponent implements OnInit {
   GamesData: any = [];
   dataSource: MatTableDataSource<Games>;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  displayedColumns: string[] = ['title', 'platform', 'genre', 'rating', 'publisher', 'release', 'status'];
+  displayedColumns: string[] = ['title', 'platform', 'genre', 'rating', 'publisher', 'release', 'status', 'action'];
 
-  constructor(private gamesApi: ApiService) {
+  constructor(private gamesApi: GamesApiService) {
     this.gamesApi.GetGames().subscribe(data => {
       this.GamesData = data;
       this.dataSource = new MatTableDataSource<Games>(this.GamesData);

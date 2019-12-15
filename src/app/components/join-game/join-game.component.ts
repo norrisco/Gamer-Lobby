@@ -69,7 +69,7 @@ export class JoinGameComponent implements OnInit {
   updatePlayerForm() {
     console.log(this.playerForm.value)
     var id = this.actRoute.snapshot.paramMap.get('id');
-    if (window.confirm('Are you sure you want to update?')) {
+    if (window.confirm('Joining game will change your status.')) {
       this.playerApi.UpdatePlayer(id, this.playerForm.value).subscribe( res => {
         this.ngZone.run(() => this.router.navigateByUrl('/player-ranking'))
       });
