@@ -38,7 +38,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
 app.use('/', express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
 app.use('/api', playerRoute)
-app.use('/api', gamesRoute)
+app.use('/api/games', gamesRoute)
 
 //Routes
 const authRoute = require('./routes/auth');

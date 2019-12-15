@@ -1,42 +1,42 @@
 <!-- Title group  -->
 <div class="title-group">
-    <h1 class="mat-h1">Games List</h1>
+    <h1 class="mat-h2"><mat-icon>games</mat-icon> Games</h1>
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
   
   <p *ngIf="GamesData.length <= 0" class="no-data">There is no games added yet!</p>
   
   <div class="container" *ngIf="GamesData.length > 0">
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8">  
       <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Games Name </th>
+          <th mat-header-cell *matHeaderCellDef> Title </th>
           <td mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
   
         <ng-container matColumnDef="platform">
-          <th mat-header-cell *matHeaderCellDef> Rank </th>
+          <th mat-header-cell *matHeaderCellDef> Platform </th>
           <td mat-cell *matCellDef="let element"> {{element.platform}} </td>
         </ng-container>
   
         <ng-container matColumnDef="genre">
-          <th mat-header-cell *matHeaderCellDef> Score </th>
+          <th mat-header-cell *matHeaderCellDef> Genre </th>
           <td mat-cell *matCellDef="let element"> {{element.genre}} </td>
         </ng-container>
 
         <ng-container matColumnDef="rating">
-          <th mat-header-cell *matHeaderCellDef> Time </th>
+          <th mat-header-cell *matHeaderCellDef> Rating </th>
           <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
         </ng-container>
 
         <ng-container matColumnDef="publisher">
-          <th mat-header-cell *matHeaderCellDef> Games </th>
+          <th mat-header-cell *matHeaderCellDef> Publisher </th>
           <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
         </ng-container>
 
         <ng-container matColumnDef="release">
-          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <th mat-header-cell *matHeaderCellDef> Release </th>
           <td mat-cell *matCellDef="let element"> {{element.release}} </td>
         </ng-container>
 
@@ -44,9 +44,16 @@
             <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let element"> {{element.status}} </td>
           </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element; let i = index;">
+              <button mat-raised-button color="accent" (click)="deleteGames(i, element)">Delete</button>
+            </td>
+          </ng-container>
   
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
   
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

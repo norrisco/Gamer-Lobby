@@ -10,6 +10,7 @@ import { AuthService } from "./auth/auth.service";
 
 export class AppComponent implements OnInit, AfterViewChecked {
   opened = true;
+  showFiller = false;
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
 
   constructor (private auth: AuthService) {}
