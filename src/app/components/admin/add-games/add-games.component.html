@@ -26,12 +26,16 @@
             You must provide a <strong>platform</strong>
           </mat-error>
         </mat-form-field>
-
+        
         <!-- Genre -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Genre" formControlName="genre">
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <mat-select [(value)]="selectedGenre" formControlName="genre">
+            <mat-option [value]="genreArray" *ngFor="let genreArray of GenreArray">{{genreArray}}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="handleError('genre', 'required')">
-            You must provide a <strong>genre</strong>
+            Genre is required
           </mat-error>
         </mat-form-field>
 
@@ -70,11 +74,13 @@
             You must provide a <strong>status</strong>
           </mat-error>
         </mat-form-field>
+        
 
         <!-- Submit & Reset -->
         <div class="full-wrapper button-wrapper">
           <div class="button-wrapper">
-            <button mat-flat-button color="primary"><mat-icon>videogame_asset</mat-icon> Add Game </button>
+            <button mat-flat-button color="accent"><mat-icon>videogame_asset</mat-icon> Add Game </button>
+            <button type="reset" mat-flat-button color="primary" routerLinkActive="active" routerLink="/admin/games"> Cancel </button>
           </div>
         </div>
 

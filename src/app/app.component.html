@@ -13,16 +13,16 @@
   
   <!-- Sidenav -->
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="false"
-    [fixedTopGap]="0">
+    [fixedTopGap]="0" >
     <mat-nav-list>
       <a mat-list-item routerLinkActive="active" routerLink="/admin" *ngIf="isLoggedIn">
         <mat-icon>account_circle</mat-icon> Admin
       </a>
-      <hr>
+      <hr *ngIf="isLoggedIn">
       <a mat-list-item routerLinkActive="active" routerLink="/player-ranking">
         <mat-icon>face</mat-icon> Player Rankings
       </a>
-      <hr>
+      <hr *ngIf="isLoggedIn">
       <a mat-list-item routerLinkActive="active" routerLink="/admin/add-player" *ngIf="isLoggedIn">
         <mat-icon>group_add</mat-icon> Add Player
       </a>

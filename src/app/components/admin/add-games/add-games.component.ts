@@ -20,6 +20,7 @@ export class AddGamesComponent implements OnInit {
   @ViewChild('resetGamesForm', {static: false}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   gamesForm: FormGroup;
+  GenreArray: any = ['Adventure', 'MMORPG', 'Real-Time Strategy', 'Sports', 'Action', 'Puzzle', 'Fighting', 'Other'];
   RatingArray: any = ['5 stars', '4 stars', '3 stars', '2 stars', '1 star'];
 
   ngOnInit() {
