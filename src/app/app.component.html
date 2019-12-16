@@ -15,7 +15,7 @@
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="false"
     [fixedTopGap]="0" >
     <mat-nav-list>
-      <a mat-list-item routerLinkActive="active" routerLink="/admin" *ngIf="isLoggedIn">
+      <a mat-list-item *ngIf="isLoggedIn">
         <mat-icon>account_circle</mat-icon> Admin
       </a>
       <hr *ngIf="isLoggedIn">
