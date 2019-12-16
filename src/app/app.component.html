@@ -5,8 +5,8 @@
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
   <span class="example-fill-remaining-space"></span>
-  <a mat-raised-button routerLink="/login" *ngIf="!isLoggedIn" color="primary">Login</a>
-  <button mat-raised-button (click)="logout()" *ngIf="isLoggedIn" color="warn">Logout</button>
+  <button mat-raised-button routerLink="/login" *ngIf="!isLoggedIn" color="warn"><mat-icon>account_circle</mat-icon> Login</button>
+  <button mat-raised-button (click)="logout()" *ngIf="isLoggedIn" color="warn"><mat-icon>account_circle</mat-icon> Logout</button>
 </mat-toolbar>
 
 <mat-sidenav-container>

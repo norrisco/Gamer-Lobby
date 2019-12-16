@@ -20,6 +20,7 @@ mat-sidenav mat-icon{margin-right:12px;}
 .misc-bottom-padding mat-label{margin-right:15px;}
 mat-radio-group mat-radio-button{margin-left:5px;}
 .button-wrapper button{margin-right:5px;}
+.ex1{background-color: red;}
 
 /* Tables */
 table.mat-table,table{width:100%; background:rgba(0, 68, 255, 0.02);}

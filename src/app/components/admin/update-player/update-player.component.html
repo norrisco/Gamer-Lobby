@@ -1,6 +1,6 @@
 <!-- Title group  -->
 <div class="title-group">
-    <h1 class="mat-h1">Update Player</h1>
+    <h1 class="mat-h1"><mat-icon>supervisor_account</mat-icon> Update Player</h1>
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
   
@@ -52,14 +52,7 @@
           </mat-error>
         </mat-form-field>
 
-        </div>
-      </mat-card>
-  
-      <!-- Right block -->
-      <mat-card>
-        <div class="controlers-wrapper">
-
-          <!-- Games -->
+        <!-- Games -->
         <mat-form-field>
           <mat-label>Select a Game</mat-label>
           <mat-select [(value)]="selectedGames" formControlName="games_played">
@@ -77,19 +70,18 @@
           <mat-radio-group aria-label="Select an option" formControlName="player_status">
             <mat-radio-button value="Available">Available</mat-radio-button>
             <mat-radio-button value="In Game">In Game</mat-radio-button>
-            
           </mat-radio-group>
         </div>
-      </div>
-    </mat-card>
-  
-      <!-- Submit & Reset -->
-      <mat-card>
+
+        <!-- Submit & Reset -->
         <div class="full-wrapper button-wrapper">
           <div class="button-wrapper">
-            <button mat-flat-button color="warn">Update</button>
+            <button mat-flat-button color="accent"><mat-icon>supervisor_account</mat-icon> Update Player </button>
           </div>
         </div>
+
+        </div>
       </mat-card>
+  
     </form>
   </div>
